@@ -52,12 +52,11 @@ out. The usage is as follows:
 Example Run and Testing
 
 Compiling the Cryptr program
-    
+  
     Command Line 
         $ javac Cryptr.java
         
 Generating a file to encrypt
-
    We’ll want to create a sample file to encrypt. We’ll just create a simple text file foo.txt that says "This is a text file 
    I want to share".
 
@@ -65,7 +64,6 @@ Generating a file to encrypt
         $ echo "This is a text file I want to share" > foo.txt
         
 Generating a key
-
    In order to encrypt our file, we will need a secret key stored within a file so that we can encrypt files, This secret key 
    file will not only be used to encrypt a file but the file itself will be encrypted itself to securely share the secret key 
    with whoever we want to be able to decrypt our file. We’ll generate a secret key and store it in the file secret.key.
@@ -75,7 +73,6 @@ Generating a key
         Generating secret key and writing it to secret.key
         
 Encrypting File
-
    Now before we can share our file we have to encrypt it using the secret key. We’ll encrypt our file foo.txt with the 
    secret key file we generated secret.key and have the encrypted output be put into a file called foo.enc.
 
@@ -84,7 +81,6 @@ Encrypting File
         Encrypting foo.txt with key secret.key to foo.enc
 
 Generating Key Pair
-
    We need to generate a sample RSA key pair to represent the public and private keys of our friend. These need to be 
    converted into the .der format to be used with our Java program. We’ll name the private key private_key.der and the 
    public key public_key.der.
@@ -95,7 +91,6 @@ Generating Key Pair
         $ openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der
         
 Encrypting the Secret Key
-
    Now that we have a sample key pair, let’s encrypt the secret key file secret.key with the public key public_key.der and 
    output it to a file called s.enckey.
 
@@ -104,7 +99,6 @@ Encrypting the Secret Key
         Encrypting key file secrey.key with public key file public_key.der to s.enckey
     
 Decrypting Key and File
-
    Finally in order to decrypt the file, we should be able to decrypt the encrypted secret key and then use that key to 
    decrypt the encrypted file. First we’ll decrypt the encrypted secret key file s.enkey with the private key private_key.der 
    and put it in a file called recovered−secret.key. Then we’ll decrypt the encrypted file foo.enc with the recovered secret 
