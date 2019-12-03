@@ -46,4 +46,56 @@ out. The usage is as follows:
     Cryptr decryptfile <file to decrypt> <secret key file> <decrypted output file>
     Cryptr encryptkey <key to encrypt> <public key to encrypt with> <encrypted key file>
     Cryptr decryptkey <key to decrypt> <private key to decrypt with> <decrypted key file>
+    
    
+Example Run and Testing
+
+Compiling the Cryptr program
+    
+    Command Line 
+        $ javac Cryptr.java
+        
+Generating a file to encrypt
+
+    Command Line
+        $ echo "This is a text file I want to share" > foo.txt
+        
+Generating a key
+
+    Command Line
+        $ java Cryptr generatekey secret.key
+        Generating secret key and writing it to secret.key
+        
+Encrypting File
+
+    Command Line
+        $ java Cryptr encryptfile foo.txt secret.key foo.enc
+        Encrypting foo.txt with key secret.key to foo.enc
+
+Generating Key Pair
+    
+    Command Line
+        $ openssl genrsa -out private_key.pem 2048
+        $ openssl pkcs8 -topk8 -inform PEM -outform DER -in private_key.pem \-out private_key.der -nocrypt
+        $ openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der
+        
+Encrypting the Secret Key
+
+    Command Line
+    $ java Cryptr encryptkey secret.key public_key.der s.enckey
+    Encrypting key file secrey.key with public key file public_key.der to s.enckey
+    
+Decrypting Key and File
+
+    Command Line
+        $ java Cryptr decryptkey s.enckey private_key.der recovered-secret.key
+        Decrypting key file s.enckey with private key file private_key.der to recovered-secret.key
+        $ java Cryptr decryptfile foo.enc recovered-secret.key recovered-foo.txt
+        Decrypting foo.enc with key recovered-secret.key to recovered-foo.txt
+
+Printing out the recovered text file using the cat command should show us the contents of our original
+file.
+
+    Command Line
+    $ cat recovered-foo.txt
+    This is a text file I want to share
