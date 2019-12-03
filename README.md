@@ -40,9 +40,10 @@ Implementation
 Provided should be a program template called Cryptr.java. This template already has a main runner
 implemented. The program takes in multiple arguments depending on which function wants to carried
 out. The usage is as follows:
-  Cryptr generatekey <key output file>
-  Cryptr encryptfile <file to encrypt> <secret key file> <encrypted output file>
-  Cryptr decryptfile <file to decrypt> <secret key file> <decrypted output file>
-  Cryptr encryptkey <key to encrypt> <public key to encrypt with> <encrypted key file>
-  Cryptr decryptkey <key to decrypt> <private key to decrypt with> <decrypted key file>
+
+    Cryptr generatekey <key output file>
+    Cryptr encryptfile <file to encrypt> <secret key file> <encrypted output file>
+    Cryptr decryptfile <file to decrypt> <secret key file> <decrypted output file>
+    Cryptr encryptkey <key to encrypt> <public key to encrypt with> <encrypted key file>
+    Cryptr decryptkey <key to decrypt> <private key to decrypt with> <decrypted key file>
    
