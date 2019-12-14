@@ -8,9 +8,12 @@ The crypt program will support the following functions:
 5. Decrypting a secret key using a private key
 
 (1) I would generate a secret key to encrypt my file and upload it. 
+
 (2) I can then download my friend’s public key and use it to encrypt the secret key. 
 (3) I would then upload the encrypted secret key. 
+
 (4) My friend can then download the encrypted file and encrypted key. 
+
 (5) Using their private key, my friend can decrypt the secret key which then is used to decrypt the 
     encrypted file. Sharing my file with additional friends would involve steps 2 to 5.
 
