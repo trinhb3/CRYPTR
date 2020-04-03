@@ -10,6 +10,7 @@ The crypt program will support the following functions:
 (1) I would generate a secret key to encrypt my file and upload it. 
 
 (2) I can then download my friend’s public key and use it to encrypt the secret key. 
+
 (3) I would then upload the encrypted secret key. 
 
 (4) My friend can then download the encrypted file and encrypted key. 
